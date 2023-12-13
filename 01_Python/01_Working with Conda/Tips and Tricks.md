@@ -10,11 +10,8 @@ First, let us create a new environment. We take the opportunity and show you som
 
 ```
 conda create --prefix ./envs python=3.9 jupyter notebook numpy=1.26
+conda config --set env_prompt '({name}) '
+conda activate ./envs
 ```
 
-
-```
-conda create -n environment python=3.9 scipy
-
-conda create --prefix ./envs
-```
+The first command creates a new environment at the 

@@ -9,26 +9,11 @@ There is something you can do to help her, which is what we are going to explore
 First, let us create a new environment. We take the opportunity and show you some more advanced features that you can use to make working with conda easier. Just execute the following command, and then we will explore what exactly it does and its implications.
 
 ```
-conda create --prefix ./envs python=3.9 jupyter notebook numpy=1.26
-conda config --set env_prompt '({name}) '
-conda activate ./envs
+conda create -n quickstart python=3.9 jupyter notebook numpy=1.26
+conda activate quickstart
 ```
 
-The first command creates a new environment with two new features, the part `--prefix ./envs` and the part `python=3.9 jupyter notebook numpy=1.26`. We start off explaining the second part; it is simply telling conda to add the packages to the newly created environment. The first part is a little more tricky. It changes the location the environment is saved at. Before, we always installed the environment at the default location. The prefix now tells conda to put the environment in a folder called envs at the location the command line is currently active at. 
-
-That might be difficult, so lets look at some properties of the command line first. When you have your terminal, power shell of conda shell open, there is always some bits of information visible. 
-
-```
-user@pc ~/Repo/teaching-material %
-```
-
-In this example, the user "user" is logged into the computer "pc" and the terminal used is currently in the directory Repo/teaching-material. The ~ symbol tells you that this is under the home directory of the user.
-
-When we now execute the conda command above, it does two things:
-- create a folder called envs in the location ~/Repo/teaching-material/envs
-- copy all files necessary to this folder
-
-Having understood the first part, we quickly go over the two other commands. The second one is only visual. Without it, the command line would always show the full path, which can be quite long. The second activates the newly created environment. Note that this only works if your command line is at the same location as the folder envs.
+The first command creates a new environment with a new part `python=3.9 jupyter notebook numpy=1.26`. It is simply telling conda to add the packages to the newly created environment. Then we activate it.
 
 ## Porting an environment
 
@@ -36,4 +21,52 @@ Remember our scenario: we want to make our environment available to another user
 
 ```
 conda env export --from-history
+
+name: quickstart
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyter
+  - notebook
+  - numpy=1.26
+  - python=3.9
+prefix: <wherever>/miniconda/base/envs/quickstart
 ```
+You can see that it documents all steps necessary to reproduce the environment, listing the name, the channels used and the dependencies. The last line is unnecessary and should not be sent to your colleague.
+
+To create a new file containing this information, simply modify the command above like this:
+```
+conda env export --from-history > environment.yml
+```
+Now you can delete the prefix line from the file and voila you have a file that you can use to recreate the environment.
+
+Lets try it out ourselves. First, deactivate the environment and delete it.
+```
+conda deactivate
+conda env remove -n quickstart
+```
+Now, we can use the file to recreate the environment like this:
+```
+conda env create -f environment.yml
+```
+Afterwards, you can activate the environment quickstart again and it has the packages installed that you specified.
+
+### New way of managing packages
+
+If you are using git in your project, the file we just created is perfectly suitable for version control. Just commit the initial version of it, and all other collaborators can use it to create an environment as specified above.
+
+But that also changes the way we should update dependencies, like adding or removing them. For a start, we add another dependency to pandas 2.0. For that, we add the line 
+```
+- pandas=2.0
+```
+at the end of the file. Now, we can update our environment with the following command:
+```
+conda env update -f environment.yml
+```
+If we discovery later in the project that we actually don't need either pandas or jupyter, we can remove both and reexecute the command, with the option --prune added at the end. This way, conda checks whether there are any unnecessary packages installed and removes these:
+```
+conda env update -f environment.yml --prune
+```
+For this to work conda needs to be version 23.9 or younger.
+

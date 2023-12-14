@@ -2,7 +2,7 @@
 name: Tutorial Related Question
 about: Questions that refer to the tutorials in this repository
 title: "[<main area>] - <Specific Markdown File>"
-labels: ''
+labels: bug, question
 assignees: ''
 
 ---

@@ -1,6 +1,6 @@
 # Using Conda - Hands On
 
-If you haven't installed conda yet, check out [how to install Conda](/01_Python/01_Working%20with%20Conda/Installing%20Conda.md). Once it's on your system, open a command line with conda active and type the following command:
+If you haven't installed conda yet, check out [how to install Conda](/01_Python/01_Working%20with%20Conda/01_Installing%20Conda.md). Once it's on your system, open a command line with conda active and type the following command:
 ```console
 conda --version
 ```
@@ -239,4 +239,4 @@ conda env remove --name learning-conda
 
 If you try to execute it now, conda throws an error. This is because you still have the environment active. So before deleting the environment, you have to deactivate it. This can be simply done by executing `conda deactivate` first.
 
-That was it for this tutorial. For collaborating with conda see [Tips and Tricks](/01_Python/01_Working%20with%20Conda/Tips%20and%20Tricks.md).
+That was it for this tutorial. For collaborating with conda see [Tips and Tricks](/01_Python/01_Working%20with%20Conda/03_Collaborating%20with%20Environments.md).

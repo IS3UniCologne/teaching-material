@@ -46,4 +46,4 @@ channels:
 
 Now you're all set to find and install a wider variety of tools for your projects!
 
-Next [Using Conda - Hands on](/01_Python/01_Working%20with%20Conda/Using%20Conda%20-%20Hands%20on.md)
+Next [Using Conda - Hands on](/01_Python/01_Working%20with%20Conda/02_Using%20Conda%20-%20Hands%20on.md)

@@ -2,7 +2,7 @@
 name: Coding Question
 about: Use this template for questions on writing code.
 title: "[Python] - Issue with XYZ"
-labels: ''
+labels: question
 assignees: ''
 
 ---

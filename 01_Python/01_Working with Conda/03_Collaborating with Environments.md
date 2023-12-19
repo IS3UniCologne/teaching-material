@@ -1,4 +1,4 @@
-# Tips and Tricks
+# Collaborating with Environments
 
 For collaborating, managing conda environments is crucial. Suppose you are writing code in a Jupyter Notebook and sending that notebook to your colleague. Now, she has to look which packages you used, then she needs to create an environment containing all these packages and only then can she execute your notebook.
 

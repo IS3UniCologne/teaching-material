@@ -33,7 +33,8 @@ dependencies:
   - python=3.9
 prefix: <wherever>/miniconda/base/envs/quickstart
 ```
-You can see that it documents all steps necessary to reproduce the environment, listing the name, the channels used and the dependencies. The last line is unnecessary and should not be sent to your colleague.
+You can see that it documents all steps necessary to reproduce the environment, listing the name, the channels used and the dependencies. 
+> The last line is unnecessary and should not be sent to your colleague, as this path will most likely not exist on their machine!
 
 To create a new file containing this information, simply modify the command above like this:
 ```

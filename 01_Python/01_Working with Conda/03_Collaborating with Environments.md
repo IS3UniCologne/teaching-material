@@ -70,3 +70,6 @@ conda env update -f environment.yml --prune
 ```
 For this to work conda needs to be version 23.9 or younger.
 
+## References
+
+https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html

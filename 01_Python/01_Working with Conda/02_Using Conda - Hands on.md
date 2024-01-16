@@ -240,3 +240,6 @@ conda env remove --name learning-conda
 If you try to execute it now, conda throws an error. This is because you still have the environment active. So before deleting the environment, you have to deactivate it. This can be simply done by executing `conda deactivate` first.
 
 That was it for this tutorial. For collaborating with conda see [Tips and Tricks](/01_Python/01_Working%20with%20Conda/03_Collaborating%20with%20Environments.md).
+
+## References
+https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html

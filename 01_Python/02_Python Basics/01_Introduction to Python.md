@@ -45,4 +45,4 @@ And as easy as that, you can define variables. However, we already showed you a 
 
 What are we doing in the above snippet? We are setting a variable called `an_integer`, then we are writing something `type()` and last we are looking at the value of our variable `an_integer`. What exactly does the `type()` thing do? This is our first *function* we are using. A function is a piece of code which takes arguments, these are the things you write in the () brackets, and produces an output. In this case, the function is looking at the variable we put in there and returns the type (as the name suggests).
 
-## 
+To be continued

@@ -45,4 +45,15 @@ And as easy as that, you can define variables. However, we already showed you a 
 
 What are we doing in the above snippet? We are setting a variable called `an_integer`, then we are writing something `type()` and last we are looking at the value of our variable `an_integer`. What exactly does the `type()` thing do? This is our first *function* we are using. A function is a piece of code which takes arguments, these are the things you write in the () brackets, and produces an output. In this case, the function is looking at the variable we put in there and returns the type (as the name suggests).
 
-To be continued
+What types exist? If you already know some programming, then you already have other names in your mind. For the people not knowing anything: python stores basic data in two main forms - either as numbers or as strings. What are those two types? It comes down to interpreting the memory used to store the value. When interpreting them as numbers, there is a fundamental difference between two types of numbers. Whole numbers (-1546, 0, 15) are called integers (int in python). These numbers can be represented exactly. Obviously, you can not represent all numbers using integers, which is why there is the additional class of floats. These are floating point numbers (e.g. 3.3546). Always remember that there is a minor inaccuracy in float representation. We will explore the resulting things you need to keep in mind due to this later.
+
+How to code these types? You already saw strings and integers, now there are also floats:
+
+```
+>>> a_string = 'Hello World'
+>>> another_string = "Hello World"
+>>> an_integer = 5
+>>> a_float = 1.355
+```
+
+That concludes this brief introduction to python as a programming language, for the next part see [Python math and control flows](/01_Python/02_Python%20Basics/02_Python%20math%20and%20control%20flows)

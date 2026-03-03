@@ -13,7 +13,15 @@ This tutorial will show you how to set up `uv`, use it to manage your project's 
 You can find step-by-step guides for your specific system online:
 - [uv Installation Guide](https://docs.astral.sh/uv/getting-started/installation/)
 
-For example, on macOS or Linux, you can typically install it by opening your terminal and running a command provided on their website. On Windows, you can use PowerShell.
+For example, on macOS or Linux, you can install it by opening your terminal and running:
+```console
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+On Windows, open PowerShell and run:
+```console
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
 After installation, restart your command line or terminal. Type the following command to check if it worked:
 ```console
@@ -43,6 +51,13 @@ This tells `uv` that this folder is a special workspace. `uv` will create a few 
 
 With Conda, you have to manually install Python into your workspace. `uv` is smarter: it can automatically download and manage Python versions for you!
 
+In newer versions of `uv`, you can explicitly choose and pin the exact Python version you want for your project. This is very helpful when your colleagues or deployment environments need a specific version:
+
+```console
+uv python pin 3.11
+```
+This updates your project's blueprint to always use Python 3.11.
+
 Let's start adding tools to our empty toolbox. First, we will add a popular toolkit for math, `numpy`. Instead of installing it into a global space, we add it to our project:
 
 ```console
@@ -59,6 +74,23 @@ When you run this, `uv` does a few things automatically:
 If you want a specific version of a tool, you can ask for it, just like in Conda:
 ```console
 uv add pandas==2.0.3
+```
+
+### Optional Group Dependencies
+
+Sometimes you need certain toolkits only for specific tasks—like tools for testing or formatting your code, which aren't needed when your project is running in production. `uv` lets you organize these into "dependency groups".
+
+For example, you can add a testing toolkit like `pytest` to a "dev" group:
+```console
+uv add --dev pytest
+```
+Or you can create entirely custom groups if you want:
+```console
+uv add --group lint ruff
+```
+These will be neatly separated in your `pyproject.toml`. When someone else syncs your project, they can choose to install everything, or only the groups they need:
+```console
+uv sync --group dev
 ```
 
 ### Removing Packages
